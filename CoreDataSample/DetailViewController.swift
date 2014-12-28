@@ -22,9 +22,10 @@ class DetailViewController: UIViewController {
 
     func configureView() {
         // Update the user interface for the detail item.
-        if let detail: AnyObject = self.detailItem {
+        if let detail: Event = self.detailItem as? Event {
             if let label = self.detailDescriptionLabel {
-                label.text = detail.valueForKey("timeStamp")!.description
+                //label.text = detail.valueForKey("timeStamp")!.description
+                label.text = detail.formattedTimeStamp
             }
         }
     }

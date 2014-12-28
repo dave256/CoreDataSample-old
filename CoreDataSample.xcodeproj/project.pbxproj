@@ -15,6 +15,9 @@
 		035FC0D51A5091BF00DB9766 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 035FC0D41A5091BF00DB9766 /* Images.xcassets */; };
 		035FC0D81A5091BF00DB9766 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 035FC0D61A5091BF00DB9766 /* LaunchScreen.xib */; };
 		035FC0E41A5091BF00DB9766 /* CoreDataSampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 035FC0E31A5091BF00DB9766 /* CoreDataSampleTests.swift */; };
+		035FC12C1A50BE0400DB9766 /* _Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 035FC12A1A50BE0400DB9766 /* _Event.swift */; };
+		035FC12D1A50BE0400DB9766 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 035FC12B1A50BE0400DB9766 /* Event.swift */; };
+		035FC12F1A50BE2F00DB9766 /* DDRManagedObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 035FC12E1A50BE2F00DB9766 /* DDRManagedObject.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +43,9 @@
 		035FC0DD1A5091BF00DB9766 /* CoreDataSampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoreDataSampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		035FC0E21A5091BF00DB9766 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		035FC0E31A5091BF00DB9766 /* CoreDataSampleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataSampleTests.swift; sourceTree = "<group>"; };
+		035FC12A1A50BE0400DB9766 /* _Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = _Event.swift; path = ModelObjects/_Event.swift; sourceTree = "<group>"; };
+		035FC12B1A50BE0400DB9766 /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Event.swift; path = ModelObjects/Event.swift; sourceTree = "<group>"; };
+		035FC12E1A50BE2F00DB9766 /* DDRManagedObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDRManagedObject.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +87,7 @@
 		035FC0C51A5091BF00DB9766 /* CoreDataSample */ = {
 			isa = PBXGroup;
 			children = (
+				035FC1291A50BDC500DB9766 /* ModelObjects */,
 				035FC0C81A5091BF00DB9766 /* AppDelegate.swift */,
 				035FC0CD1A5091BF00DB9766 /* MasterViewController.swift */,
 				035FC0CF1A5091BF00DB9766 /* DetailViewController.swift */,
@@ -118,6 +125,16 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		035FC1291A50BDC500DB9766 /* ModelObjects */ = {
+			isa = PBXGroup;
+			children = (
+				035FC12E1A50BE2F00DB9766 /* DDRManagedObject.swift */,
+				035FC12A1A50BE0400DB9766 /* _Event.swift */,
+				035FC12B1A50BE0400DB9766 /* Event.swift */,
+			);
+			name = ModelObjects;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -125,6 +142,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 035FC0E71A5091BF00DB9766 /* Build configuration list for PBXNativeTarget "CoreDataSample" */;
 			buildPhases = (
+				035FC1281A50BD3100DB9766 /* ShellScript */,
 				035FC0BF1A5091BF00DB9766 /* Sources */,
 				035FC0C01A5091BF00DB9766 /* Frameworks */,
 				035FC0C11A5091BF00DB9766 /* Resources */,
@@ -213,15 +231,34 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		035FC1281A50BD3100DB9766 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "cd \"$PROJECT_DIR/CoreDataSample\" && /Users/dreed/bin/mogenerator --swift -m CoreDataSample.xcdatamodeld --base-class DDRManagedObject --output-dir ./ModelObjects";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		035FC0BF1A5091BF00DB9766 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				035FC0CC1A5091BF00DB9766 /* CoreDataSample.xcdatamodeld in Sources */,
+				035FC12F1A50BE2F00DB9766 /* DDRManagedObject.swift in Sources */,
 				035FC0C91A5091BF00DB9766 /* AppDelegate.swift in Sources */,
 				035FC0CE1A5091BF00DB9766 /* MasterViewController.swift in Sources */,
 				035FC0D01A5091BF00DB9766 /* DetailViewController.swift in Sources */,
+				035FC12D1A50BE0400DB9766 /* Event.swift in Sources */,
+				035FC12C1A50BE0400DB9766 /* _Event.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -413,6 +450,7 @@
 				035FC0E91A5091BF00DB9766 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		035FC0EA1A5091BF00DB9766 /* Build configuration list for PBXNativeTarget "CoreDataSampleTests" */ = {
 			isa = XCConfigurationList;
@@ -421,6 +459,7 @@
 				035FC0EC1A5091BF00DB9766 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

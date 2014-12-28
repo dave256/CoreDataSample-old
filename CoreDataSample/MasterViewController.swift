@@ -100,8 +100,9 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
     }
 
     func configureCell(cell: UITableViewCell, atIndexPath indexPath: NSIndexPath) {
-        let object = self.fetchedResultsController.objectAtIndexPath(indexPath) as NSManagedObject
-        cell.textLabel!.text = object.valueForKey("timeStamp")!.description
+        let object = self.fetchedResultsController.objectAtIndexPath(indexPath) as Event // NSManagedObject
+        //cell.textLabel!.text = object.valueForKey("timeStamp")!.description
+        cell.textLabel!.text = object.formattedTimeStamp
     }
 
     // MARK: - Fetched results controller
